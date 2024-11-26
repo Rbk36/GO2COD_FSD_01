@@ -1,0 +1,25 @@
+<!DOCTYPE html> <!--shows the version of HTML-->
+<html lang="'en"> <!--shows the language used-->
+<head>
+    <style>
+        h1{
+            color:rgb(75,53,73);
+          
+        }
+       h4{
+            margin:10px;
+        }
+      
+    </style>
+<meta charset="UTF-8">
+<meta name="viewport", content="width=device-width, initial-scale=1.0">
+
+<h1>{{post.title}}</h1>
+<h4>By: {{post.author.first_name}}</h4>
+    <hr>
+    
+{{post.body}}
+
+<br>
+<br>
+  <a href="{%url 'home' %}">Back to home</a>

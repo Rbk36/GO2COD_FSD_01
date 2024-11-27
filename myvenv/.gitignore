@@ -1,3 +1,6 @@
-
+.pyc/
+myvenv/
+.git/
 settings.py
-venv/
+db.sqlite3
+manage.py

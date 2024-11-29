@@ -1,0 +1,23 @@
+
+{% extends 'a.html' %}
+{%block title %} Create a new blog post{%endblock%}
+{% block content %}
+<style>
+  button{
+    background-color:rgb(160,122,220);
+  }
+  section,h1{
+    margin:20px;
+  }
+</style>
+
+<h1>Add Blog Post</h1>
+<br>
+<section>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+<button>Post</button>
+ 
+  {% endblock %}
+</section>

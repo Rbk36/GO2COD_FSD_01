@@ -1,6 +1,6 @@
 
 {% extends 'a.html' %}
-{%block title %} Create a new blog post{%endblock%}
+{%block title %} edit a blog post{%endblock%}
 {% block content %}
 <style>
   button{
@@ -14,7 +14,7 @@
     }
 </style>
 
-<h1>Add Blog Post</h1>
+<h1>Edit Blog Post</h1>
 <br>
 <section>
 <div class="size">
@@ -22,7 +22,7 @@
   <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}
-    <button>Post</button>
+    <button>Edit</button>
 </div>
 </div>
   {% endblock %}

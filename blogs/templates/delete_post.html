@@ -1,6 +1,6 @@
 
 {% extends 'a.html' %}
-{%block title %} Create a new blog post{%endblock%}
+{%block title %} Delete a blog post{%endblock%}
 {% block content %}
 <style>
   button{
@@ -12,22 +12,21 @@
   size {
     width:50%;
     }
-    .size{
-      width:70%;
+    h2{
+        font-style:'Times New Roman';
     }
 </style>
 
-<h1>Add Blog Post</h1>
+<h1>Delete Blog Post</h1>
+<br>
+<h2>Delete: {{ post.title }}</h2>
 <br>
 <section>
-  <div class="size">
 <div class="size">
 <div class='form-group size'>
   <form method="POST">
       {% csrf_token %}
-      {{ form.as_p }}
-    <button>Post</button>
-</div>
+    <button>Delete</button>
 </div>
 </div>
   {% endblock %}

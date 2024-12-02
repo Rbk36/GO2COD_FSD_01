@@ -1,31 +1,37 @@
 
 {% extends 'a.html' %}
-{%block title %} Delete a blog post{%endblock%}
+{%block title %} Login{%endblock%}
 {% block content %}
 <style>
   button{
     background-color:rgb(160,122,220);
   }
-  section,h2,h3{
+  section,h2{
     margin:20px;
   }
   size {
     width:50%;
     }
-    body{
-        font-family:'Times New Roman';
-       
+    .size{
+      width:70%;
     }
+    body{
+      font-family:'Times New Roman';
+  }
+
 </style>
 <body>
-<h3>Delete: {{ post.title }}</h3>
+<h2>Login</h2>
 <br>
 <section>
+  <div class="size">
 <div class="size">
 <div class='form-group size'>
   <form method="POST">
       {% csrf_token %}
-    <small><button>Delete</button></small>
+      {{ form.as_p }}
+    <button>Login</button>
+</div>
 </div>
 </div>
   {% endblock %}

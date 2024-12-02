@@ -9,6 +9,9 @@
        h4{
             margin:10px;
         }
+        div{
+            font-family:'Times New Roman';
+        }
       
     </style>
 <meta charset="UTF-8">
@@ -19,8 +22,9 @@
 <div class="container">
 <h1>{{post.title}}</h1>
 <h4>By: {{post.author.first_name}}</h4>
-<a href="{% url 'Edit Post' post.pk %}"><button type="button" class="btn btn-info">Edit</button></a> <a href="{% url 'Delete Post' post.pk %}"><button type="button" class="btn btn-info">Delete</button></a>
-    <hr>
+
+<a href="{% url 'Edit Post' post.pk %}"><small><button type="button" class="btn btn-info">Edit</button></small></a> <a href="{% url 'Delete Post' post.pk %}"><small><button type="button" class="btn btn-info">Delete</button></small></a>
+<hr>
     
 {{post.body}}
 

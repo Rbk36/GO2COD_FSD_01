@@ -13,7 +13,7 @@
     width:50%;
     }
 </style>
-
+{% if user.is_authenticated %}
 <h1>Edit Blog Post</h1>
 <br>
 <section>
@@ -25,5 +25,10 @@
     <small><button>Edit</button></small>
 </div>
 </div>
+{% else %}
+
+Please login to edit post
+
+{% endif %}
   {% endblock %}
 </section>

@@ -21,6 +21,7 @@
 
 </style>
 <body>
+  {% if user.is_authenticated %}
 <h2>Add Blog Post</h2>
 <br>
 <section>
@@ -34,6 +35,9 @@
 </div>
 </div>
 </div>
+{% else %}
+ Please login to add post
+{% endif %}
   {% endblock %}
 </section>
 </body>

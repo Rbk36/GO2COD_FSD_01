@@ -18,6 +18,7 @@
     }
 </style>
 <body>
+  {% if user.is_authenticated %}
 <h3>Delete: {{ post.title }}</h3>
 <br>
 <section>
@@ -28,6 +29,11 @@
     <small><button>Delete</button></small>
 </div>
 </div>
+{% else %}
+
+Please login to delete post
+
+{% endif %}
   {% endblock %}
 </section>
 </body>

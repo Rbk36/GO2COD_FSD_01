@@ -1,0 +1,16 @@
+<!DOCTYPE html> 
+<html lang="'en">
+<head>
+    
+    <p>Profile picture URL: {{ user.profile.profile_picture.url }}</p>
+
+
+<img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;">
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Update Profile Picture</button>
+</form>
+</head>
+</html>

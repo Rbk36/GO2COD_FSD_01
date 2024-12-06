@@ -5,7 +5,7 @@
         h1{
             color:rgb(75,53,73);
             text-align:center;
-            background-color:red;
+            
         }
         li{
            
@@ -48,7 +48,7 @@
     <li><a href="{% url 'post detail' post.pk %}">{{post.title}}</a> -{{post.author.first_name}} 
        
             {% if user.is_authenticated %}
-                <a href="{% url 'Edit Post' post.pk %}"><button type="button" class="btn btn-info">Edit</button></a> <a href="{% url 'Delete Post' post.pk %}"><button type="button" class="btn btn-info">Delete</button></a></li>
+                <a href="{% url 'Edit Post' post.pk %}"><button type="button" class="btn btn-info">Edit</button></a> <a href="{% url 'Delete Post' post.pk %}"><button type="button" class="btn btn-danger">Delete</button></a></li>
             {% endif %} 
   
   {{post.body}}

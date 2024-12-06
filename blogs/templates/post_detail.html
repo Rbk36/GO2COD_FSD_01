@@ -1,36 +1,78 @@
 <!DOCTYPE html> <!--shows the version of HTML-->
-<html lang="'en"> <!--shows the language used-->
+<html lang="en"> <!--shows the language used-->
 <head>
     <style>
-        h1{
-            color:rgb(75,53,73);
-          
+        h1 {
+            color: rgb(75, 53, 73);
         }
-       h4{
-            margin:10px;
+        h4 {
+            margin: 10px;
         }
-        div{
-            font-family:'Times New Roman';
+        div {
+            font-family: 'Times New Roman';
         }
-      
+        .post-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .post-box h1 {
+            margin-bottom: 15px;
+        }
+        .post-box .buttons {
+            margin-top: 15px;
+        }
+        .post-box .btn {
+            margin-right: 10px;
+        }
     </style>
-<meta charset="UTF-8">
-<meta name="viewport", content="width=device-width, initial-scale=1.0">
-{% extends "a.html" %}
-{%block content%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    {% extends "a.html" %}
+    {% block content %}
 
-<div class="container">
-<h1>{{post.title}}</h1>
-<h4>By: {{post.author.first_name}}</h4>
-{% if user.is_authenticated %}
-    <a href="{% url 'Edit Post' post.pk %}"><small><button type="button" class="btn btn-info">Edit</button></small></a> <a href="{% url 'Delete Post' post.pk %}"><small><button type="button" class="btn btn-info">Delete</button></small></a>
-    
-{% endif %}  
-{{post.body}}
+    <div class="container">
+        <div class="row mt-5 pt-3">
+            <div class="col-md-4">
+                <div class="card my-3 shadow">
+                    <div class="card-body">
+                        <div class="post-box">
+                            <h1>{{ post.title }}</h1>
+                            <h4>By: {{ post.author.first_name }}</h4>
+                            <p>{{ post.body }}</p>
+                            {% if user.is_authenticated %}
+                                <div class="buttons">
+                                    <a href="{% url 'Edit Post' post.pk %}">
+                                        <button type="button" class="btn btn-info">Edit</button>
+                                    </a>
+                                    <a href="{% url 'Delete Post' post.pk %}">
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </a>
+                                </div>
+                            {% endif %}
+                            <br>
+                            <a href="{% url 'home' %}" class="btn btn-success">Back to home</a>
+                            <br>
+                            <br>
 
+                            <form action="{% url 'like Post' post.pk %}"
+                            method="POST">
+                              {%csrf_token %}
+                           <button type="submit", name="post_id", value="{{ post.id }}", class="btn-btn-primary">Like</button> - {{ total_likes }}Likes
+                            
+                        </form>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<br>
-<br>
-  <a href="{%url 'home' %}" class="btn btn-success">Back to home</a>
-</div>
-  {% endblock %}
+    {% endblock %}
+</body>
+</html>
